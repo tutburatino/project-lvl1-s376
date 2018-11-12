@@ -1,52 +1,33 @@
-import { makeGame, initGame, gameResult } from '..';
+import { makeGame } from '..';
 import randomInt from '../utils';
-import { cons, car, cdr } from 'hexlet-pairs';
+import { cons } from 'hexlet-pairs';
 
 const description = 'What number is missing in this progression?';
 
-const getRandomFirstNumber = () => randomInt(10);
-const getRandomDifference = () => randomInt(4, 1);
-
 const size = 10;
+const indexOfUnknown = 5;
 
-const getFirstDifference = () => cons(getRandomFirstNumber(), getRandomDifference());
+const getMember = (numIndex, firstNum, difference) => firstNum + difference * numIndex;
 
-const getMember = (serialNum, firstNum, difference) => firstNum + difference * (serialNum - 1);
-
-const getFirstMember = expr => car(expr);
-const getDifference = expr => cdr(expr);
-
-const getMissingMember = (progression) => {
-  const firstMember = getFirstMember(progression);
-  const difference = getDifference(progression);
-  const serialNumber = 6;
-  return `${getMember(serialNumber, firstMember, difference)}`;
-};
-
-const progressToQuest = (progression) => {
-  const a = getFirstMember(progression);
-  const d = getDifference(progression);
+const printProgression = (first, difference) => {
   const iter = (strDiff, acc) => {
     if (acc >= size) { return strDiff; }
-    const nextMember = a + d * acc;
-    if (acc === 5) {
+    const nextMember = first + difference * acc;
+    if (acc === indexOfUnknown) {
       return iter(`${strDiff} ..`, acc + 1);
     }
     return iter(`${strDiff} ${nextMember}`, acc + 1);
   };
   const index = 1;
-  return iter(`${a}`, index);
+  return iter(`${first}`, index);
 };
 
 const generator = () => {
-  const expression = getFirstDifference();
-  const question = progressToQuest(expression);
-  const rightAnswer = getMissingMember(expression);
+  const first = randomInt(10);
+  const difference = randomInt(4, 1);
+  const question = printProgression(first, difference);
+  const rightAnswer = `${getMember(indexOfUnknown, first, difference)}`;
   return cons(question, rightAnswer);
 };
 
-export default () => {
-  const userGame = initGame(description);
-  const result = makeGame(generator);
-  gameResult(result, userGame);
-};
+export default () => makeGame(description, generator);
