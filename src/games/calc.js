@@ -1,40 +1,19 @@
-import { cons, car, cdr } from 'hexlet-pairs';
-import { makeGame, initGame, gameResult } from '..';
+import { cons } from 'hexlet-pairs';
+import { makeGame } from '..';
 import randomInt from '../utils';
 
 const description = 'What is the result of the expression?';
 
-const getSign = expr => car(expr);
-const get1stMember = expr => car(cdr(expr));
-const get2ndMember = expr => cdr(cdr(expr));
-
 const getRandomSign = () => {
-  const random = randomInt(3);
-  switch (random) {
+  switch (randomInt(3)) {
     case 2: return '*';
     case 1: return '-';
     default: return '+';
   }
 };
 
-const expressionToString = (expr) => {
-  const a = get1stMember(expr);
-  const b = get2ndMember(expr);
-  const sign = getSign(expr);
-  return `${a} ${sign} ${b}`;
-};
-
-const getRandExpres = () => {
-  const a = randomInt(10);
-  const b = randomInt(10);
-  const sign = getRandomSign();
-  return cons(sign, cons(a, b));
-};
-
-const calculator = (expr) => {
-  const a = get1stMember(expr);
-  const b = get2ndMember(expr);
-  switch (getSign(expr)) {
+const calculator = (a, b, sign) => {
+  switch (sign) {
     case '*': return `${a * b}`;
     case '+': return `${a + b}`;
     case '-': return `${a - b}`;
@@ -43,14 +22,12 @@ const calculator = (expr) => {
 };
 
 const generator = () => {
-  const expression = getRandExpres();
-  const question = expressionToString(expression);
-  const rightAnswer = calculator(expression);
+  const a = randomInt(10);
+  const b = randomInt(10);
+  const sign = getRandomSign();
+  const question = `${a} ${sign} ${b}`;
+  const rightAnswer = calculator(a, b, sign);
   return cons(question, rightAnswer);
 };
 
-export default () => {
-  const userGame = initGame(description);
-  const result = makeGame(generator);
-  gameResult(result, userGame);
-};
+export default () => makeGame(description, generator);
