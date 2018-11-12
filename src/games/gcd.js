@@ -1,4 +1,4 @@
-import { makeGame, initGame, gameResult } from '..';
+import { makeGame } from '..';
 import randomInt from '../utils';
 import { cons } from 'hexlet-pairs';
 
@@ -20,8 +20,4 @@ const generator = () => {
   return cons(question, rightAnswer);
 };
 
-export default () => {
-  const userGame = initGame(description);
-  const result = makeGame(generator);
-  gameResult(result, userGame);
-};
+export default () => makeGame(description, generator);
