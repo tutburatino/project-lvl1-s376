@@ -1,11 +1,8 @@
 import { makeGame, initGame, gameResult } from '..';
 import randomInt from '../utils';
-import { cons, car, cdr } from 'hexlet-pairs';
+import { cons } from 'hexlet-pairs';
 
 const description = 'Find the greatest common divisor of given numbers.';
-
-const get1stMember = expr => car(expr);
-const get2ndMember = expr => cdr(expr);
 
 const getGreatestDivisor = (a, b) => {
   const greatest = a >= b ? a : b;
@@ -15,28 +12,11 @@ const getGreatestDivisor = (a, b) => {
   return rest === 0 ? smallest : getGreatestDivisor(rest, smallest);
 };
 
-const ints2string = (expr) => {
-  const a = get1stMember(expr);
-  const b = get2ndMember(expr);
-  return `${a} ${b}`;
-};
-
-const getIntPair = () => {
+const generator = () => {
   const a = randomInt(10);
   const b = randomInt(10);
-  return cons(a, b);
-};
-
-const gcd2string = (expr) => {
-  const a = get1stMember(expr);
-  const b = get2ndMember(expr);
-  return `${getGreatestDivisor(a, b)}`;
-};
-
-const generator = () => {
-  const expression = getIntPair();
-  const question = ints2string(expression);
-  const rightAnswer = gcd2string(expression);
+  const question = `${a} ${b}`;
+  const rightAnswer = `${getGreatestDivisor(a, b)}`;
   return cons(question, rightAnswer);
 };
 
