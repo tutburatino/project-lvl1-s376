@@ -1,1 +1,19 @@
-# project-lvl1-s376
+# project-lvl1-s364
+## Brain-games. Legendary.
+[![Maintainability](https://api.codeclimate.com/v1/badges/109b3cf4dc9f4100aa1b/maintainability)](https://codeclimate.com/github/tutburatino/project-lvl1-s364/maintainability)
+[![Build Status](https://travis-ci.org/tutburatino/project-lvl1-s364.svg?branch=master)](https://travis-ci.org/tutburatino/project-lvl1-s364)
+
+### Install and play **Brain-even**
+[![asciicast](https://asciinema.org/a/gmyccxSaGvp1QMMZsoNGHxGBq.png)](https://asciinema.org/a/gmyccxSaGvp1QMMZsoNGHxGBq)
+
+### Install and play **Brain-calc**
+[![asciicast](https://asciinema.org/a/CPM20frqtbn8qHT14pvNoNEfK.png)](https://asciinema.org/a/CPM20frqtbn8qHT14pvNoNEfK)
+
+### Install and play **Brain-gcd**
+[![asciicast](https://asciinema.org/a/SkmuggnCSX9H2KqVWAFqwol2Z.png)](https://asciinema.org/a/SkmuggnCSX9H2KqVWAFqwol2Z)
+
+### Install and play **Brain-progression**
+[![asciicast](https://asciinema.org/a/MZUAuxqRlaLn79JhI5X5RCGc3.png)](https://asciinema.org/a/MZUAuxqRlaLn79JhI5X5RCGc3)
+
+**Install**
+```npm install -g braingamesbymip ```

@@ -1,0 +1,52 @@
+{
+  "name": "bgamemip02",
+  "version": "1.1.8",
+  "description": "Games: brain-games, brain-even, brain-calc, brain-gcd, brain-progression",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tutburatino/project-lvl1-s364.git"
+  },
+  "keywords": [
+    "brain-games",
+    "hexlet"
+  ],
+  "files": [
+    "dist"
+  ],
+  "author": "Mikhail Proskuryakov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tutburatino/project-lvl1-s364/issues"
+  },
+  "homepage": "https://github.com/tutburatino/project-lvl1-s364#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-babel": "^5.2.1",
+    "eslint-plugin-flowtype": "^3.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.26.1",
+    "eslint-plugin-lodash-fp": "^2.2.0-a1"
+  },
+  "dependencies": {
+    "hexlet-pairs": "^1.0.8",
+    "readline-sync": "^1.4.9"
+  },
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js",
+    "brain-even": "dist/bin/brain-even.js",
+    "brain-calc": "dist/bin/brain-calc.js",
+    "brain-gcd": "dist/bin/brain-gcd.js",
+    "brain-progression": "dist/bin/brain-progression.js"
+  }
+}
