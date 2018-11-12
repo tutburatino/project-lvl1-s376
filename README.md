@@ -16,4 +16,4 @@
 [![asciicast](https://asciinema.org/a/MZUAuxqRlaLn79JhI5X5RCGc3.png)](https://asciinema.org/a/MZUAuxqRlaLn79JhI5X5RCGc3)
 
 **Install**
-```npm install -g braingamesbymip ```
+```npm install -g bgamemip02 ```
