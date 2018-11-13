@@ -4,19 +4,18 @@ import { cons } from 'hexlet-pairs';
 
 const description = 'What number is missing in this progression?';
 
-const size = 10;
 const indexOfUnknown = 5;
 
 const getMember = (numIndex, firstNum, difference) => firstNum + difference * numIndex;
 
-const printProgression = (first, difference) => {
-  const iter = (strDiff, acc) => {
-    if (acc >= size) { return strDiff; }
-    const nextMember = first + difference * acc;
-    if (acc === indexOfUnknown) {
-      return iter(`${strDiff} ..`, acc + 1);
+const getProgression = (first, difference, size) => {
+  const iter = (acc, counter) => {
+    if (counter >= size) { return acc; }
+    const nextMember = first + difference * counter;
+    if (counter === indexOfUnknown) {
+      return iter(`${acc} ..`, counter + 1);
     }
-    return iter(`${strDiff} ${nextMember}`, acc + 1);
+    return iter(`${acc} ${nextMember}`, counter + 1);
   };
   const index = 1;
   return iter(`${first}`, index);
@@ -25,7 +24,7 @@ const printProgression = (first, difference) => {
 const generator = () => {
   const first = randomInt(10);
   const difference = randomInt(4, 1);
-  const question = printProgression(first, difference);
+  const question = getProgression(first, difference, 10);
   const rightAnswer = `${getMember(indexOfUnknown, first, difference)}`;
   return cons(question, rightAnswer);
 };
