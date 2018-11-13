@@ -15,5 +15,8 @@
 ### Install and play **Brain-progression**
 [![asciicast](https://asciinema.org/a/MZUAuxqRlaLn79JhI5X5RCGc3.png)](https://asciinema.org/a/MZUAuxqRlaLn79JhI5X5RCGc3)
 
+### Install and play **Brain-promise**
+[![asciicast](https://asciinema.org/a/0WtXWY3rLAXnUX4XZVXfkmvES.svg)](https://asciinema.org/a/0WtXWY3rLAXnUX4XZVXfkmvES)
+
 **Install**
 ```npm install -g bgamemip02 ```
