@@ -11,8 +11,6 @@ export const initGame = (description) => {
 
 const numberOfSteps = 3;
 
-const check = (userAnswer, rightAnswer) => userAnswer === rightAnswer;
-
 const gameResult = (result, userName) => {
   if (result) {
     console.log(`Congratulations, ${userName}!`);
@@ -31,7 +29,7 @@ export const makeGame = (description, generator) => {
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
     const rightAnswer = cdr(exercise);
-    if (!check(userAnswer, rightAnswer)) {
+    if (!(userAnswer === rightAnswer)) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
       return false;
     }
