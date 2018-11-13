@@ -11,19 +11,13 @@ export const initGame = (description) => {
 
 const numberOfSteps = 3;
 
-const gameResult = (result, userName) => {
-  if (result) {
-    console.log(`Congratulations, ${userName}!`);
-    return;
-  }
-  console.log(`Let's try again, ${userName}!`);
-};
-
 export const makeGame = (description, generator) => {
   const userName = initGame(description);
 
   const round = (step) => {
-    if (step <= 0) { return true; }
+    if (step <= 0) {
+      return console.log(`Congratulations, ${userName}!`);
+    }
     const exercise = generator();
     const question = car(exercise);
     console.log(`Question: ${question}`);
@@ -31,10 +25,10 @@ export const makeGame = (description, generator) => {
     const rightAnswer = cdr(exercise);
     if (!(userAnswer === rightAnswer)) {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
-      return false;
+      return console.log(`Let's try again, ${userName}!`);
     }
     console.log('Correct!');
     return round(step - 1);
   };
-  gameResult(round(numberOfSteps), userName);
+  round(numberOfSteps);
 };
