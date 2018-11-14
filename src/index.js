@@ -14,7 +14,7 @@ const numberOfSteps = 3;
 export const makeGame = (description, generator) => {
   const userName = initGame(description);
 
-  const round = (step) => {
+  const playGame = (step) => {
     if (step <= 0) {
       return console.log(`Congratulations, ${userName}!`);
     }
@@ -28,7 +28,7 @@ export const makeGame = (description, generator) => {
       return console.log(`Let's try again, ${userName}!`);
     }
     console.log('Correct!');
-    return round(step - 1);
+    return playGame(step - 1);
   };
-  round(numberOfSteps);
+  playGame(numberOfSteps);
 };
