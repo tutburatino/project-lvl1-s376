@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 import readlineSync from 'readline-sync';
 import { car, cdr } from 'hexlet-pairs';
 
@@ -17,20 +16,20 @@ export const makeGame = (description, generator) => {
   const playGame = (step) => {
     if (step <= 0) {
       console.log(`Congratulations, ${userName}!`);
+      return;
     }
-    if (step > 0) {
-      const exercise = generator();
-      const question = car(exercise);
-      console.log(`Question: ${question}`);
-      const userAnswer = readlineSync.question('Your answer: ');
-      const rightAnswer = cdr(exercise);
-      if (userAnswer === rightAnswer) {
-        console.log('Correct!');
-        return playGame(step - 1);
-      }
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
+    const exercise = generator();
+    const question = car(exercise);
+    console.log(`Question: ${question}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+    const rightAnswer = cdr(exercise);
+    if (!(userAnswer === rightAnswer)) {
+      console.log(`'${userAnswer}'  is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
+      return;
     }
+    console.log('Correct!');
+    playGame(step - 1);
   };
   playGame(numberOfSteps);
 };
